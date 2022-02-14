@@ -6,11 +6,6 @@ const bookSchema = new mongoose.Schema({
     unique: true,
     required: [true, "El nombre es obligatorio"],
   },
-  dbStatus: {
-    type: Boolean,
-    required: [true, "El estado es obligatorio"],
-    default: true,
-  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "users",
@@ -29,6 +24,12 @@ const bookSchema = new mongoose.Schema({
   },
   isAvailible: {
     type: Boolean,
+    default: true,
+  },
+  registerDate: { type: Date, default: Date.now },
+  dbStatus: {
+    type: Boolean,
+    required: [true, "El estado es obligatorio"],
     default: true,
   },
   img: {
