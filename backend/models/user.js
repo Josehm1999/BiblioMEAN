@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   role: { type: mongoose.Schema.ObjectId, ref: "roles" },
   registerDate: { type: Date, default: Date.now },
-  dbStatus: Boolean,
+  dbStatus: { type: Boolean, default: true },
 });
 
 const user = mongoose.model("users", userSchema);

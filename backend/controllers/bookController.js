@@ -20,7 +20,7 @@ const registerBook = async (req, res = Response) => {
 
   let result = await schema.save();
   return !result
-    ? res.status(500).send({ message: "Failed to register book" })
+    ? res.status(500).send({ message: "Failed to register book test" })
     : res.status(200).send({ result });
 };
 

@@ -12,7 +12,7 @@ const registerRole = async (req, res = Response) => {
 
   if (roleDB) {
     return res.status(400).send({
-      message: `El rol ${name} ya existe.`,
+      message: `${name} doesn't exist.`,
     });
   }
 

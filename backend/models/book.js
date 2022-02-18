@@ -4,7 +4,7 @@ const bookSchema = new mongoose.Schema({
   name: {
     type: String,
     unique: true,
-    required: [true, "El nombre es obligatorio"],
+    required: [true, "Name is required"],
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
