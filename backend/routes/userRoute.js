@@ -1,9 +1,10 @@
 import express from "express";
 
-import userController from "../controllers/userController.js";
-
+import { registerUser, listUsers } from "../controllers/userController.js";
+import { existingUser } from "../middleware/userValidations.js";
+import { existingRole } from "../middleware/roleValidations.js";
 const router = express.Router();
 
-router.post("/registerUser", userController.registerUser);
-router.get("/", userController.getUsers);
+router.post("/registerUser", [existingUser, existingRole], registerUser);
+router.get("/listUsers/:name?", listUsers);
 export default router;

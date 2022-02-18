@@ -28,12 +28,11 @@ const registerRole = async (req, res = Response) => {
   res.status(200).send({ result });
 };
 
-const getRoles = async (_, res = Response) => {
-  const roles = await role.find({});
-
-  if (!roles) return res.status(500).send({ message: "Failed to get roles" });
-
-  res.status(200).send({ roles });
+const listRoles = async (req, res = Response) => {
+  const roles = await role.find({ name: new RegExp(req.params["name"]) });
+  return roles.length === 0
+    ? res.status(500).send({ message: "No roles were found" })
+    : res.status(200).send({ roles });
 };
 
-export { registerRole, getRoles };
+export { registerRole, listRoles };
