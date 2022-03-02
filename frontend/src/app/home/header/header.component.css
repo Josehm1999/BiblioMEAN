@@ -1,0 +1,19 @@
+.headerSpacer {
+  flex: 1 1 auto;
+}
+
+ul {
+  margin: auto;
+}
+
+a:hover {
+  transition: 0.4s;
+  color: #ffffff;
+  background-color: #212121;
+}
+
+a.left:hover {
+  padding: 0.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+}

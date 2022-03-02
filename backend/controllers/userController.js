@@ -5,8 +5,6 @@ import generateJWT from '../helpers/generateJWT.js';
 
 const registerUser = async (req, res) => {
   const { name, email, password, role } = req.body;
-  if (!name || !email || !password || !role)
-    return res.status(400).send({ message: 'Incomplete Data' });
 
   const passHash = await bcrypt.hash(password, 10);
 

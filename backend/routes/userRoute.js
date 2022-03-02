@@ -8,11 +8,15 @@ import {
   updateUserAdmin,
   listUserAdmin,
 } from '../controllers/userController.js';
-import { existingUser } from '../middleware/userValidations.js';
+import { existingUser, emptyValues } from '../middleware/userValidations.js';
 import { existingRole } from '../middleware/roleValidations.js';
 const router = express.Router();
 
-router.post('/registerUser', [existingUser, existingRole], registerUser);
+router.post(
+  '/register',
+  [existingUser, existingRole, emptyValues],
+  registerUser
+);
 router.get('/listUsers/:name?', listUsers);
 router.get('/listAdmin/:name?', listUserAdmin);
 router.post('/login', login);
