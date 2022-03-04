@@ -10,8 +10,13 @@ import { ListBookComponent } from './board/list-book/list-book.component';
 import { SaveBookComponent } from './board/save-book/save-book.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -19,10 +24,12 @@ const routes: Routes = [
   {
     path: 'listBook',
     component: ListBookComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'saveBook',
     component: SaveBookComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'signUp',
@@ -31,26 +38,32 @@ const routes: Routes = [
   {
     path: 'registerUser',
     component: RegisterUserComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'listUser',
     component: ListUserComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'updateUser',
     component: UpdateUserComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'registerRole',
     component: RegisterRoleComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'listRole',
     component: ListRoleComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'updateRole',
     component: UpdateRoleComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
